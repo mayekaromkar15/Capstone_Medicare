@@ -1,0 +1,21 @@
+.navbar-brand img {
+    margin-left: 100px;
+}
+
+.navbar_custom {
+    background: rgb(39, 158, 176);
+    /* //120, 179, 54 */
+    border-radius: 10px;
+}
+
+div ul li a {
+    font-size: 20px;
+    font-style: oblique;
+    font-weight: 500;
+    /* color: rgb(73, 184, 138); */
+    color: black;
+}
+
+.d-flex .navbar-brand img {
+    margin-right: 100px;
+}
