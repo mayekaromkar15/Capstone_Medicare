@@ -20,6 +20,13 @@ import { ProductListComponent } from './components/user/product-list/product-lis
 import { CartComponent } from './components/user/cart/cart.component';
 import { CartItemComponent } from './components/user/cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './components/user/product-list/product-item/product-item.component';
+import { ImagesComponent } from './components/user/images/images.component';
+import { HttpClientModule } from "@angular/common/http";
+import { ImagesTrainingComponent } from './components/user/images-training/images-training.component';
+import { ProductComponent } from './components/user/product/product.component';
+import { UpdateProductComponent } from './components/admin/product-api/update-product/update-product.component';
+import { CreateProductComponent } from './components/admin/product-api/create-product/create-product.component';
+import { DeleteProductComponent } from './components/admin/product-api/delete-product/delete-product.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +42,13 @@ import { ProductItemComponent } from './components/user/product-list/product-ite
     ProductListComponent,
     CartComponent,
     CartItemComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    ImagesComponent,
+    ImagesTrainingComponent,
+    ProductComponent,
+    UpdateProductComponent,
+    CreateProductComponent,
+    DeleteProductComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +57,8 @@ import { ProductItemComponent } from './components/user/product-list/product-ite
     MatButtonModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

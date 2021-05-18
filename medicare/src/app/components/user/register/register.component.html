@@ -9,34 +9,35 @@
                 </div>
                 <h1 class="text-center">Register Here !!</h1>
 
-                <form class="text-center">
+                <form (ngSubmit)="onSubmit()">
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>First Name</mat-label>
-                        <input matInput placeholder="Enter First Name here">
+                        <input matInput placeholder="Enter First Name here" name='firstName' [(ngModel)]='user.firstName'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Last Name</mat-label>
-                        <input matInput placeholder="Enter Last Name here">
+                        <input matInput placeholder="Enter Last Name here" name='lastName' [(ngModel)]='user.lastName'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Age</mat-label>
-                        <input matInput placeholder="Enter Age here">
+                        <input matInput placeholder="Enter Age here" name='age' [(ngModel)]='user.age'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Email Id</mat-label>
-                        <input matInput placeholder="Enter emailId here">
+                        <input matInput placeholder="Enter emailId here" name='emailId' [(ngModel)]='user.emailId'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Password</mat-label>
-                        <input matInput placeholder="Enter Password here">
+                        <input matInput placeholder="Enter Password here" name='password' [(ngModel)]='user.password'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
+                    <button type='submit' class="register_button" mat-raised-button color="primary">REGISTER</button>
+
                 </form>
-                <button class="register_button" mat-raised-button color="primary">REGISTER</button>
                 <!-- <button >SUBMIT</button> -->
             </div>
         </div>
