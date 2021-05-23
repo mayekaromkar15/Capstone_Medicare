@@ -1,3 +1,4 @@
+<p>portal-login works!</p>
 <!-- <p>register works!</p> -->
 <div class="bootstrap-wrapper">
     <div class="container">
@@ -8,16 +9,17 @@
                     <img class="items-center" src="../../../../assets/img/mobile_login.svg" width="150" height="150">
                 </div>
                 <h1 class="text-center">Login Here !!!</h1>
-                <!-- {{loginData | json }} -->
+                {{loginData | json}}
+
                 <form class="text-center" (ngSubmit)="formSubmit()">
                     <mat-form-field appearance="outline" class="full-width">
-                        <mat-label>User Name</mat-label>
-                        <input [(ngModel)]='loginData.userName' name='userName' matInput placeholder="Enter User Name here">
+                        <mat-label>Email Id</mat-label>
+                        <input [(ngModel)]='loginData.userName' name='userName' matInput placeholder="Enter First Name here">
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Password</mat-label>
-                        <input [(ngModel)]='loginData.password' name='password' matInput placeholder="Enter Your Password here">
+                        <input [(ngModel)]='loginData.password' name='password' matInput placeholder="Enter Last Name here">
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <div class="example-button-row">

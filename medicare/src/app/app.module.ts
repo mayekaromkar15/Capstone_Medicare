@@ -1,3 +1,4 @@
+import { authInterceptorProvider } from './services/auth.intercept';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -27,6 +28,11 @@ import { ProductComponent } from './components/user/product/product.component';
 import { UpdateProductComponent } from './components/admin/product-api/update-product/update-product.component';
 import { CreateProductComponent } from './components/admin/product-api/create-product/create-product.component';
 import { DeleteProductComponent } from './components/admin/product-api/delete-product/delete-product.component';
+import { PortaluserregisterComponent } from './examportal/components/user/portaluserregister/portaluserregister.component';
+import { PortalLoginComponent } from './examportal/components/user/portal-login/portal-login.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component'; 
 
 @NgModule({
   declarations: [
@@ -48,7 +54,11 @@ import { DeleteProductComponent } from './components/admin/product-api/delete-pr
     ProductComponent,
     UpdateProductComponent,
     CreateProductComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    PortaluserregisterComponent,
+    PortalLoginComponent,
+    AdminDashboardComponent,
+    UserDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,9 +68,10 @@ import { DeleteProductComponent } from './components/admin/product-api/delete-pr
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [authInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

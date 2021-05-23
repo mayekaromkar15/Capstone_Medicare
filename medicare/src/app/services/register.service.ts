@@ -11,6 +11,7 @@ export class RegisterService {
   constructor(private _httpClient: HttpClient) { }
 
   register(user : User): Observable<Object>{
-    return this._httpClient.post("http://localhost:9090/registerUser", user);
+    return this._httpClient.post("http://localhost:9090/user/", user);
   }
+
 }

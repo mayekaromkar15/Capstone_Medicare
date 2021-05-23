@@ -8,10 +8,10 @@
             <ul class="navbar-nav me-auto mb-10 mb-lg-0">
 
                 <li class="nav-item">
-                    <a routerLink="register" class='nav-link'>Register</a>
+                    <a *ngIf='!isLoggedIn' routerLink="register" class='nav-link'>Register</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="login" class='nav-link'>Login</a>
+                    <a *ngIf='!isLoggedIn' routerLink="login" class='nav-link'>Login</a>
                 </li>
                 <li class="nav-item">
                     <a routerLink="shopping-cart" class='nav-link'>Shopping Cart</a>
@@ -23,7 +23,19 @@
                     <a routerLink="images-practice" class='nav-link'>Upload Practice</a>
                 </li>
                 <li class="nav-item">
-                    <a routerLink="product" class='nav-link'>Products</a>
+                    <a *ngIf='isLoggedIn' routerLink="product" class='nav-link'>Products</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf='!isLoggedIn' routerLink="portal-register" class='nav-link'>Portal Register</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf='!isLoggedIn' routerLink="portal-login" class='nav-link'>Portal Login</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf='isLoggedIn' class='nav-link'>{{_loginService.getUser().username}}</a>
+                </li>
+                <li class="nav-item">
+                    <a *ngIf='isLoggedIn' (click)="logout()" class='nav-link'>Logout</a>
                 </li>
             </ul>
             <!-- <div class="d-flex">

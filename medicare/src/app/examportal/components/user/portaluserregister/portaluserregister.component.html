@@ -14,32 +14,32 @@
                 <form (ngSubmit)="onSubmit()">
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>First Name</mat-label>
-                        <input matInput placeholder="Enter First Name here" name='firstName' [(ngModel)]='user.firstName' required>
+                        <input matInput placeholder="Enter First Name here" name='firstName' [(ngModel)]='portalUser.firstName'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Last Name</mat-label>
-                        <input matInput placeholder="Enter Last Name here" name='lastName' [(ngModel)]='user.lastName' required>
+                        <input matInput placeholder="Enter Last Name here" name='lastName' [(ngModel)]='portalUser.lastName'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>UserName</mat-label>
-                        <input matInput placeholder="Enter UserName here" name='userName' [(ngModel)]='user.username' required>
+                        <input matInput placeholder="Enter UserName here" name='age' [(ngModel)]='portalUser.username'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Email Id</mat-label>
-                        <input matInput placeholder="Enter emailId here" name='emailId' [(ngModel)]='user.email' required>
+                        <input matInput placeholder="Enter emailId here" name='emailId' [(ngModel)]='portalUser.email'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Phone No</mat-label>
-                        <input matInput placeholder="Enter Phone No here" name='phone' [(ngModel)]='user.phone' required>
+                        <input matInput placeholder="Enter Phone No here" name='phone' [(ngModel)]='portalUser.phone'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Password</mat-label>
-                        <input matInput placeholder="Enter Password here" type='password' name='password' [(ngModel)]='user.password' required>
+                        <input matInput placeholder="Enter Password here" type='password' name='password' [(ngModel)]='portalUser.password'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <button type='submit' class="register_button" mat-raised-button color="primary">REGISTER</button>
