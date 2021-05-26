@@ -10,3 +10,11 @@
 .register_button {
     width: 100%;
 }
+
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
+    background: #22b0c9;
+    margin-bottom: 10px;
+}

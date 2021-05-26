@@ -1,6 +1,7 @@
 import { ProductService } from 'src/app/services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-delete-product',
@@ -19,6 +20,7 @@ export class DeleteProductComponent implements OnInit {
     this._productService.deleteProduct(this.id).subscribe(
       data =>{
         console.log("Product deleted Successfully")
+        Swal.fire("Success","User Deleted","info")
         this._routing.navigate(["/product"])
         // this._router.navigate(["/home"])
       },

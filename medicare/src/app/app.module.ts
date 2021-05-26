@@ -33,6 +33,18 @@ import { PortalLoginComponent } from './examportal/components/user/portal-login/
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component'; 
+import {MatToolbarModule} from '@angular/material/toolbar'; 
+import {MatIconModule} from '@angular/material/icon'; 
+import {MatListModule} from '@angular/material/list'; 
+import {MatCardModule} from '@angular/material/card';
+import { SidebarComponent } from './components/admin/admin-dashboard/sidebar/sidebar.component';
+import { CategoryApiComponent } from './components/admin/category-api/category-api.component';
+import { DeleteCategoryComponent } from './components/admin/category-api/delete-category/delete-category.component';
+import { CreateCategoryComponent } from './components/admin/category-api/create-category/create-category.component';
+import { UserSidebarComponent } from './components/user/user-sidebar/user-sidebar.component';
+import { UserCategoryComponent } from './components/user/user-category/user-category.component';
+import { AllProductComponent } from './components/admin/product-api/all-product/all-product.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component'; 
 
 @NgModule({
   declarations: [
@@ -59,6 +71,15 @@ import { UserDashboardComponent } from './components/user/user-dashboard/user-da
     PortalLoginComponent,
     AdminDashboardComponent,
     UserDashboardComponent,
+    SidebarComponent,
+    CategoryApiComponent,
+    DeleteCategoryComponent,
+    CreateCategoryComponent,
+    UserSidebarComponent,
+    UserCategoryComponent,
+    AllProductComponent,
+    AdminHomeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -69,7 +90,11 @@ import { UserDashboardComponent } from './components/user/user-dashboard/user-da
     MatFormFieldModule,
     MatInputModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatListModule,
+    MatCardModule, 
   ],
   providers: [authInterceptorProvider],
   bootstrap: [AppComponent]

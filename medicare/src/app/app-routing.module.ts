@@ -1,3 +1,6 @@
+import { AllProductComponent } from './components/admin/product-api/all-product/all-product.component';
+import { UserCategoryComponent } from './components/user/user-category/user-category.component';
+import { User } from './entities/user';
 import { NormalGuard } from './services/normal.guard';
 import { UserDashboardComponent } from './components/user/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
@@ -15,6 +18,11 @@ import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { ImagesTrainingComponent } from './components/user/images-training/images-training.component';
 import { AdminGuard } from './services/admin.guard';
+import { CategoryApiComponent } from './components/admin/category-api/category-api.component';
+import { CreateCategoryComponent } from './components/admin/category-api/create-category/create-category.component';
+import { CartComponent } from './components/user/cart/cart.component';
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+
 
 const routes: Routes = [
   
@@ -29,8 +37,50 @@ const routes: Routes = [
 {path:'delete-product/:id', component: DeleteProductComponent},
 {path:'portal-register', component: PortaluserregisterComponent},
 {path:'portal-login', component: PortalLoginComponent },
-{path:'admin-dashboard', component: AdminDashboardComponent, canActivate:[AdminGuard] },
-{path:'user-dashboard', component: UserDashboardComponent , canActivate:[NormalGuard]},
+{path:'category', component: CategoryApiComponent },
+{path:'create-category', component: CreateCategoryComponent },
+{path:'admin-dashboard', component: AdminDashboardComponent,
+  children:[
+    {
+      path:'admin-home', component:AdminHomeComponent
+    },
+    {
+      path:'product', component:ProductComponent,
+      children:[
+        {
+          path:'', component:AllProductComponent,
+        },
+        {
+          path:'create-product', component:CreateProductComponent,
+        },
+      ],
+    },
+    {
+      path:'category', component:CategoryApiComponent
+    },
+    {
+      path:'create-category', component:CreateCategoryComponent
+    },
+  ]
+},
+// {path:'admin-dashboard', component: AdminDashboardComponent, canActivate:[AdminGuard] },
+// {path:'user-dashboard', component: UserDashboardComponent , canActivate:[NormalGuard]},
+{path:'user-dashboard', component: UserDashboardComponent,
+    children:[
+         {
+           path:'user-dashboard', component:HomeComponent
+         },
+        //  {
+        //    path:'account', component:ProductComponent
+        //  },
+         {
+           path:'user-category', component:UserCategoryComponent
+         },
+         {
+           path:'cart', component:CartComponent
+         },
+]
+},
 {path:'', redirectTo : 'home', pathMatch : 'full'},
 ];
 
