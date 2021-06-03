@@ -44,7 +44,13 @@ import { CreateCategoryComponent } from './components/admin/category-api/create-
 import { UserSidebarComponent } from './components/user/user-sidebar/user-sidebar.component';
 import { UserCategoryComponent } from './components/user/user-category/user-category.component';
 import { AllProductComponent } from './components/admin/product-api/all-product/all-product.component';
-import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component'; 
+import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { AllCategoriesComponent } from './components/admin/category-api/all-categories/all-categories.component';
+import { UpdateCategoryComponent } from './components/admin/category-api/update-category/update-category.component'; 
+import {MatSelectModule} from '@angular/material/select';
+import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
+import { UserRenderCategoryComponent } from './components/user/user-render-category/user-render-category.component';
+
 
 @NgModule({
   declarations: [
@@ -79,7 +85,11 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
     UserCategoryComponent,
     AllProductComponent,
     AdminHomeComponent,
-    
+    AllCategoriesComponent,
+    UpdateCategoryComponent,
+    AdminUsersComponent,
+    UserRenderCategoryComponent,
+        
   ],
   imports: [
     BrowserModule,
@@ -95,6 +105,7 @@ import { AdminHomeComponent } from './components/admin/admin-home/admin-home.com
     MatIconModule,
     MatListModule,
     MatCardModule, 
+    MatSelectModule,
   ],
   providers: [authInterceptorProvider],
   bootstrap: [AppComponent]

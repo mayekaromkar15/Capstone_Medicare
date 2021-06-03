@@ -1,3 +1,8 @@
+import { UserRenderCategoryComponent } from './components/user/user-render-category/user-render-category.component';
+import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
+import { UpdateCategoryComponent } from './components/admin/category-api/update-category/update-category.component';
+import { DeleteCategoryComponent } from './components/admin/category-api/delete-category/delete-category.component';
+import { AllCategoriesComponent } from './components/admin/category-api/all-categories/all-categories.component';
 import { AllProductComponent } from './components/admin/product-api/all-product/all-product.component';
 import { UserCategoryComponent } from './components/user/user-category/user-category.component';
 import { User } from './entities/user';
@@ -34,13 +39,19 @@ const routes: Routes = [
 {path:'images-practice', component: ImagesTrainingComponent},
 {path:'product', component: ProductComponent},
 {path:'update-product/:id', component: UpdateProductComponent},
+{path:'update-category/:id', component: UpdateCategoryComponent},
 {path:'delete-product/:id', component: DeleteProductComponent},
+{path:'delete-category/:id', component: DeleteCategoryComponent},
 {path:'portal-register', component: PortaluserregisterComponent},
 {path:'portal-login', component: PortalLoginComponent },
 {path:'category', component: CategoryApiComponent },
 {path:'create-category', component: CreateCategoryComponent },
-{path:'admin-dashboard', component: AdminDashboardComponent,
+{path:'user-render-category/:id', component: UserRenderCategoryComponent },
+{path:'admin-dashboard', component: AdminDashboardComponent, canActivate:[AdminGuard] ,
   children:[
+    {
+      path:'', component:AdminHomeComponent
+    },
     {
       path:'admin-home', component:AdminHomeComponent
     },
@@ -56,17 +67,31 @@ const routes: Routes = [
       ],
     },
     {
-      path:'category', component:CategoryApiComponent
+      path:'category', component:CategoryApiComponent,
+      children:[
+        {
+          path:'',component:AllCategoriesComponent,
+        },
+        {
+          path:'create-category', component:CreateCategoryComponent,
+        },
+        {
+          path:'update-category', component:UpdateCategoryComponent,
+        },
+      ],
     },
     {
-      path:'create-category', component:CreateCategoryComponent
+      path:'admin-users', component:AdminUsersComponent
     },
   ]
 },
 // {path:'admin-dashboard', component: AdminDashboardComponent, canActivate:[AdminGuard] },
 // {path:'user-dashboard', component: UserDashboardComponent , canActivate:[NormalGuard]},
-{path:'user-dashboard', component: UserDashboardComponent,
+{path:'user-dashboard', component: UserDashboardComponent, canActivate:[NormalGuard],
     children:[
+         {
+           path:'', component:HomeComponent
+         },
          {
            path:'user-dashboard', component:HomeComponent
          },
@@ -75,6 +100,9 @@ const routes: Routes = [
         //  },
          {
            path:'user-category', component:UserCategoryComponent
+         },
+         {
+           path:'user-render-category', component:UserRenderCategoryComponent
          },
          {
            path:'cart', component:CartComponent

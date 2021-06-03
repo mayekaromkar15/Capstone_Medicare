@@ -1,114 +1,42 @@
 <p>user-category works!</p>
 
+
+<!-- <table class='table table-striped table-bordered table-hover'>
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product path</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let i of categories">
+            <td> {{i.categoryName}} </td>
+            <td> {{i.categoryDescription}} </td>
+            <td> {{i.categoryImagePath}} </td>
+    </tbody>
+</table> -->
+
+
 <div class="container">
     <div class="row" style="margin-bottom: 20px;margin-top: 20px;">
 
-        <div class="col-md-4">
+        <div class="col-md-3" *ngFor="let c of categories">
             <div class="card shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" src="../../../../assets/img/body_care.jpg" />
+                <img class="bd-placeholder-img card-img-top" width="100%" [(src)]="c.categoryImagePath" />
 
                 <div class="card-body">
                     <!-- <div class="card-text"><strong>{{250 | currency:'INR'}}</strong></div> -->
                     <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="container text-center">
-                            <button mat-raised-button color="primary">Body Care</button>
+                            <button mat-raised-button color="primary" [routerLink]="['/user-render-category', c.categoryId]">{{c.categoryName}}</button>
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
-
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" src="../../../../assets/img/hair_care.jpg" />
-
-                <div class="card-body">
-                    <!-- <div class="card-text"><strong>{{250 | currency:'INR'}}</strong></div> -->
-                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="container text-center">
-                            <button mat-raised-button color="primary">Hair Care</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" src="../../../../assets/img/cold_and_fever.jpg" />
-
-                <div class="card-body">
-                    <!-- <div class="card-text"><strong>{{250 | currency:'INR'}}</strong></div> -->
-                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="container text-center">
-                            <button mat-raised-button color="primary">Cold And Fever</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" src="../../../../assets/img/ayush_0.jpg" />
-
-                <div class="card-body">
-                    <!-- <div class="card-text"><strong>{{250 | currency:'INR'}}</strong></div> -->
-                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="container text-center">
-                            <button mat-raised-button color="primary">Hair Care</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" src="../../../../assets/img/treatments_0.jpg" />
-
-                <div class="card-body">
-                    <!-- <div class="card-text"><strong>{{250 | currency:'INR'}}</strong></div> -->
-                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-                    <div class="d-flex justify-content-between align-items-center">
-
-                        <!-- <button type="button" class="btn btn-sm btn-primary product-btn">Add to Cart</button> -->
-                        <!-- <button type="button" class="btn btn-sm btn-outline-secondary product-btn">View Details</button> -->
-                        <div class="container text-center">
-                            <button mat-raised-button color="primary">Treatments</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        <div class="col-md-4">
-            <div class="card shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" src="../../../../assets/img/diabetic_care.jpg" />
-
-                <div class="card-body">
-                    <!-- <div class="card-text"><strong>{{250 | currency:'INR'}}</strong></div> -->
-                    <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="container text-center">
-                            <button mat-raised-button color="primary">Diabetic Care</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
 </div>

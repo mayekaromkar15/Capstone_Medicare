@@ -3,4 +3,7 @@ export class Product {
     productName : String;
     productDescription : String;
     productPrice : Number;
+    productImagePath : String;
+    productCategory: String;
+    productSP: Number;
 }

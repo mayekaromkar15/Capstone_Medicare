@@ -6,20 +6,23 @@
         <div class="bootstrap-wrapper">
             <div class="row">
                 <div class="col-md-6 offset-3">
-                    <form action="">
+                    <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
                         <mat-form-field class="w100" appearance="outline">
                             <mat-label>Title</mat-label>
-                            <input type="text" name="title" matInput placeholder="Enter title here" />
+                            <input type="text" matInput placeholder="Enter title here" name='Category_Name' [(ngModel)]='product.categoryName' />
                         </mat-form-field>
                         <mat-form-field class="w100" appearance="outline">
                             <mat-label>Description</mat-label>
-                            <textarea name="Description" matInput placeholder="Enter Description here" rows="10">
+                            <textarea matInput placeholder="Enter Description here" name='Description' [(ngModel)]='product.categoryDescription' rows="10">
                             </textarea>
                         </mat-form-field>
+                        <!-- <mat-form-field class="w100" appearance="outline">
+                            <mat-label>Image</mat-label> -->
+                        <input type="file" name="file" placeholder="Attach Image here" [(ngModel)]='product.categoryImagePath' (change)="onFileChanged($event)" />
+                        <!-- </mat-form-field> -->
                         <div class="container text-center" style="margin-top: 10px;">
-                            <button mat-raised-button color="primary">Add</button>
+                            <button mat-raised-button color="primary" type="submit">Add</button>
                         </div>
-
 
                     </form>
 

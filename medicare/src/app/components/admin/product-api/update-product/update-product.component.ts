@@ -40,8 +40,8 @@ export class UpdateProductComponent implements OnInit {
         console.log(data);
         console.log("Product data successfully saved")
         // this.gotohomepage();
-        Swal.fire('Succes','User is Updated Successfully','success')
-        this._routing.navigate(["/product"])
+        Swal.fire('Succes','Product Updated Successfully','success')
+        this._routing.navigate(["/admin-dashboard/product"])
       },
       error=>
       {

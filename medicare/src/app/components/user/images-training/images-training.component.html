@@ -1,3 +1,4 @@
-<form action="">
-    Product Name <input type="text" id="productName"> <br/> Produt MRP <input type="text" id="productMrp"> <br/> Image <input type="file" id="productImage">
+<form enctype="multipart/form-data" (ngSubmit)="OnUpload()">
+    <input type="file" name="file" (change)="onFileSelected($event)">
+    <button type="submit">Upload</button>
 </form>

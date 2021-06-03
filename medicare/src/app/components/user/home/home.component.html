@@ -1,4 +1,4 @@
-<div class="col">
+<!-- <div class="col">
     <div class="card shadow-sm">
         <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
@@ -13,4 +13,31 @@
             </div>
         </div>
     </div>
+</div> -->
+<h2>home component works</h2>
+<div class="container">
+    <div class="row" style="margin-bottom: 20px;margin-top: 20px;">
+
+        <div class="col-md-2" *ngFor="let c of product">
+            <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="100%" [(src)]="c.productImagePath" height="150" />
+                <!-- {{ c.categoryImagePath | json}} -->
+
+                <div class="card-body">
+                    <span><strong>{{ c.productName | json}}</strong></span>
+                    <hr>
+
+                    <div class="card-text">
+                        <strike id="price" style="font-size: 12px;margin-right: 2px;">{{c.productPrice | currency:'INR'}}</strike>
+                        <strong id="act_price" style="color: red;">{{c.productSP | currency:'INR'}}</strong>
+                    </div>
+                    <p class="card-text">{{c.productDescription | json}}</p>
+
+                    <button mat-raised-button color="primary" (click)="handleAddToCart(c)">ADD TO CART</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 </div>

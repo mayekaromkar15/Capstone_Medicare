@@ -8,13 +8,13 @@
       </button>
     <span>Medicare</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon" *ngIf='!isLoggedIn' routerLink="login" aria-label="Example icon-button with login icon">
+    <button mat-icon-button class="example-icon" id='Login' *ngIf='!isLoggedIn' routerLink="login" aria-label="Example icon-button with login icon">
       <strong>Login  </strong>
     </button>
-    <button mat-icon-button class="example-icon" *ngIf='isLoggedIn' routerLink="login" aria-label="Example icon-button with login icon">
-      <strong>Logout  </strong>
+    <button mat-icon-button class="example-icon" id='Logout' *ngIf='isLoggedIn' (click)="logout()" aria-label="Example icon-button with login icon">
+      <strong>Logout</strong>
     </button>
-    <button mat-icon-button class="example-icon favourite-icon" *ngIf='!isLoggedIn' routerLink="register" aria-label="Example icon-button with login icon">
+    <button mat-icon-button class="example-icon favourite-icon" id='Register' *ngIf='!isLoggedIn' routerLink="register" aria-label="Example icon-button with login icon">
       <strong>Register</strong>
     </button>
 </mat-toolbar>

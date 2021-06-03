@@ -1,4 +1,6 @@
+import { Category } from './../../../entities/category';
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-category-api',
@@ -7,24 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoryApiComponent implements OnInit {
 
-  categories=[
-    {
-      cid :23,
-      title:'programming',
-      description:"testing",
-    },
-    {
-      cid :25,
-      title:'GK',
-      description:"testing",
-    },
-  ];
+  
+  product : Category[];
 
-  constructor() { }
+  constructor(private _categoryService : CategoryService) { }
 
   ngOnInit(): void {
-  }
 
-  
+      this._categoryService.getAllProducts().subscribe(
+        data => {
+          this.product = data;
+          console.log(data)
+        }
+      )
+      
+  }
 
 }

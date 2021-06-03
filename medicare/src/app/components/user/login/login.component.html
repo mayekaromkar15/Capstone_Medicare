@@ -12,16 +12,16 @@
                 <form class="text-center" (ngSubmit)="formSubmit()">
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>User Name</mat-label>
-                        <input [(ngModel)]='loginData.userName' name='userName' matInput placeholder="Enter User Name here">
+                        <input [(ngModel)]='loginData.userName' id='UserName' required name='userName' matInput placeholder="Enter User Name here">
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Password</mat-label>
-                        <input [(ngModel)]='loginData.password' name='password' matInput placeholder="Enter Your Password here">
+                        <input [(ngModel)]='loginData.password' id="password" required name='password' matInput placeholder="Enter Your Password here">
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <div class="example-button-row">
-                        <button class="login_button" mat-raised-button color="primary">LOGIN</button>
+                        <button class="login_button" id="Loginbtn" mat-raised-button color="primary">LOGIN</button>
                         <!-- <button >SUBMIT</button> -->
                     </div>
                 </form>

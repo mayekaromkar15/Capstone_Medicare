@@ -1,3 +1,6 @@
+import { ProductCart } from './../../../entities/product-cart';
+import { Product } from './../../../entities/product';
+import { ProductcartService } from './../../../services/productcart.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+
+  productList : ProductCart[] = []
+
+  constructor(private _productcart : ProductcartService) { }
 
   ngOnInit(): void {
+    this.productList = this._productcart.getProduct()
   }
 
 }

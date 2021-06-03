@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
   user : User = new User();
 
+
   constructor(private _registerService : RegisterService,
     private _router:Router, private _snack: MatSnackBar) { }
 
@@ -29,19 +30,63 @@ export class RegisterComponent implements OnInit {
 
 
     onSubmit(){
-
-    if(this.user.firstName.trim()=='' || this.user.firstName == null ||
-       this.user.lastName.trim()=='' || this.user.lastName == null ||
-       this.user.username.trim()=='' || this.user.username == null ||
-       this.user.email.trim()=='' || this.user.email == null ||
-       this.user.phone.trim()=='' || this.user.phone == null ||
-       this.user.password.trim()=='' || this.user.password == null )
+      
+    if(this.user.firstName.trim()=='' || this.user.firstName == null )
     {
-      this._snack.open("Please fill all the Details" ,'Ok',{
+      {
+        this._snack.open("Please fill First Name" ,'Ok',{
+          duration:3000
+        });
+        return
+      } 
+    }
+    if(this.user.lastName.trim()=='' || this.user.lastName == null )
+    {
+      {
+        this._snack.open("Please fill Last Name" ,'Ok',{
+          duration:3000
+        });
+        return
+      } 
+    }
+    if(this.user.username.trim()=='' || this.user.username == null)
+    {
+      {
+        this._snack.open("Please Enter Valid UserName Name" ,'Ok',{
+          duration:3000
+        });
+        return
+      } 
+    }
+    if(this.user.email.trim()=='' || this.user.email == null || (!this.user.email.endsWith(".com")))
+    {
+      {
+        this._snack.open("Email Address can only end with .com" ,'Ok',{
+          duration:3000
+        });
+        return
+      } 
+    }
+    if(this.user.phone.trim()=='' || this.user.phone == null || 
+    (!(this.user.phone.startsWith("9") || this.user.phone.startsWith("8")))||
+    this.user.phone.length != 10 )
+    {
+      {
+        this._snack.open("Mobile number must start with 8 or 9 & length must be 10" ,'Ok',{
+          duration:3000
+        });
+        return
+      } 
+    }
+      
+    
+      if(this.user.password.trim()=='' || this.user.password == null )
+    {
+      this._snack.open("Please enter password" ,'Ok',{
         duration:3000
       });
       return
-    }
+    } 
 
 
       this._registerService.register(this.user).subscribe(
@@ -58,7 +103,7 @@ export class RegisterComponent implements OnInit {
     }
 
     gotohomepage(){
-      this._router.navigate(["/home"])
+      this._router.navigate(["/login"])
     }
 
 

@@ -1,6 +1,5 @@
-<!-- <p>create-product works!</p> -->
+<p>create-product works!</p>
 
-<!-- <p>register works!</p> -->
 <div class="bootstrap-wrapper">
     <div class="container">
         <div class="row">
@@ -11,10 +10,12 @@
                 </div>
                 <h1 class="text-center">Add new Product !!</h1>
 
-                <form (ngSubmit)="onSubmit()">
+                <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+
+                    {{ productForm.value | json }}
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Name</mat-label>
-                        <input matInput placeholder="Enter Product Description here" name='lastName' [(ngModel)]='product.productName'>
+                        <input matInput placeholder="Enter Product Description here" name='Name' [(ngModel)]='product.productName'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
@@ -23,10 +24,24 @@
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
-                        <mat-label>Amount</mat-label>
+                        <mat-label>MRP</mat-label>
                         <input matInput placeholder="Enter Price here" name='amount' [(ngModel)]='product.productPrice'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Product Selling Price</mat-label>
+                        <input matInput placeholder="Enter Price here" name='productSp' [(ngModel)]='product.productSP'>
+                        <!-- <mat-hint>Enter Your UserName</mat-hint> -->
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>Choose an option</mat-label>
+                        <select matNativeControl [(ngModel)]='product.productCategory' name="productCategory" (change)="onFileChanged($event)">
+                          <option value=""  disabled></option>
+                          <option *ngFor="let cat of categoryList">{{cat.categoryName}}</option>
+
+                        </select>
+                    </mat-form-field>
+
                     <div class="text-center">
                         <button type='submit' class="register_button" mat-raised-button color="primary">ADD PRODUCT</button>
                     </div>

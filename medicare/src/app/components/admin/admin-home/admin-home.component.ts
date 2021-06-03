@@ -1,3 +1,4 @@
+import { AdminService } from './../../../services/admin.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _adminService :AdminService){}
 
-  ngOnInit(): void {
+  usersCount;
+  categoriesCount;
+  productCount;
+
+  ngOnInit(){
+    this._adminService.getUserCount().subscribe(
+      data=>{
+        console.log("inside admin-home get user count component")
+        
+        this.usersCount=data;
+        console.log(this.usersCount);
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+
+    this._adminService.getCategoryCount().subscribe(
+      data=>{
+        console.log("inside admin-home get category count component")
+        this.categoriesCount=data;
+        console.log(this.categoriesCount);
+      },
+      error=>{
+        console.log(error);
+      }
+    )
+
+    this._adminService.getProductCount().subscribe(
+      data=>{
+        console.log("inside admin-home get product count component")
+        this.productCount=data;
+        console.log(this.productCount);
+      },
+      error=>{
+        console.log(error);
+      }
+    )
   }
 
 }

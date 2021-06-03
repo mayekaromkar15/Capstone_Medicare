@@ -1,3 +1,6 @@
+import { MessengerService } from './../../../services/messenger.service';
+import { ProductService } from 'src/app/services/product.service';
+import { Product } from './../../../entities/product';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _prodService : ProductService, private _msg:MessengerService) { }
+
+  product : Product[];
+
+  cart: Product[];
 
   ngOnInit(): void {
+      this._prodService.getAllProducts().subscribe(
+        data => {
+          this.product = data;
+        }
+      )
   }
 
+  handleAddToCart(c){
+    this._msg.sendMsg(c)
+    console.log(c)
+  }
 }
