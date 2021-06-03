@@ -50,6 +50,7 @@ import { UpdateCategoryComponent } from './components/admin/category-api/update-
 import {MatSelectModule} from '@angular/material/select';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 import { UserRenderCategoryComponent } from './components/user/user-render-category/user-render-category.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 
 @NgModule({
@@ -89,6 +90,7 @@ import { UserRenderCategoryComponent } from './components/user/user-render-categ
     UpdateCategoryComponent,
     AdminUsersComponent,
     UserRenderCategoryComponent,
+    ProfileComponent,
         
   ],
   imports: [

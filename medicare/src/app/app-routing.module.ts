@@ -27,6 +27,7 @@ import { CategoryApiComponent } from './components/admin/category-api/category-a
 import { CreateCategoryComponent } from './components/admin/category-api/create-category/create-category.component';
 import { CartComponent } from './components/user/cart/cart.component';
 import { AdminHomeComponent } from './components/admin/admin-home/admin-home.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 
 const routes: Routes = [
@@ -95,9 +96,9 @@ const routes: Routes = [
          {
            path:'user-dashboard', component:HomeComponent
          },
-        //  {
-        //    path:'account', component:ProductComponent
-        //  },
+         {
+           path:'profile', component:ProfileComponent
+         },
          {
            path:'user-category', component:UserCategoryComponent
          },

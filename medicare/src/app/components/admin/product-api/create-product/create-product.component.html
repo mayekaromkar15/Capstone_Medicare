@@ -15,27 +15,27 @@
                     {{ productForm.value | json }}
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Name</mat-label>
-                        <input matInput placeholder="Enter Product Description here" name='Name' [(ngModel)]='product.productName'>
+                        <input matInput placeholder="Enter Product Description here" required name='productName' [(ngModel)]='product.productName'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Description</mat-label>
-                        <input matInput placeholder="Enter Age here" name='description' [(ngModel)]='product.productDescription'>
+                        <input matInput placeholder="Enter Age here" name='productdescription' required [(ngModel)]='product.productDescription'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
-                        <mat-label>MRP</mat-label>
-                        <input matInput placeholder="Enter Price here" name='amount' [(ngModel)]='product.productPrice'>
+                        <mat-label>MRP<pre>Must contain numbers</pre></mat-label>
+                        <input matInput placeholder="Enter Price here (Must contain numbers)" name='productamount' required type="number" [(ngModel)]='product.productPrice'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Product Selling Price</mat-label>
-                        <input matInput placeholder="Enter Price here" name='productSp' [(ngModel)]='product.productSP'>
+                        <input matInput placeholder="Enter Price here (Must contain a number)" name='productSp' required type="number" [(ngModel)]='product.productSP'>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Choose an option</mat-label>
-                        <select matNativeControl [(ngModel)]='product.productCategory' name="productCategory" (change)="onFileChanged($event)">
+                        <select matNativeControl [(ngModel)]='product.productCategory' required name="productCategory" (change)="onFileChanged($event)">
                           <option value=""  disabled></option>
                           <option *ngFor="let cat of categoryList">{{cat.categoryName}}</option>
 
