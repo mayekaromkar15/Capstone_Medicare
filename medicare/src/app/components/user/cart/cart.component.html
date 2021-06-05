@@ -4,11 +4,26 @@
     Your Cart is Empty
 </div>
 
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Product Name</td>
+            <td>Product Price</td>
+            <td>Product Quantity</td>
+            <td>Amount</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let items of cartItems">
+            <td> {{items.productName}} </td> 
+            <td> {{items.price}} </td> 
+            <td> {{items.qty}} </td>
+            <td><strong> {{ items.qty * items.price | currency:'INR' }} </strong></td>
+        </tr>
+    </tbody>
+</table>
 
 <ul class="list-group" *ngIf="cartItems.length > 0">
-    <li class="list-group-item" *ngFor="let items of cartItems">
-        <app-cart-item [cartItem]="items"></app-cart-item>
-    </li>
 
     <li class="list-group-item active">
         <strong>Total : {{cartTotal | currency:'INR'}}</strong>

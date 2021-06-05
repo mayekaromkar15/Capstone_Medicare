@@ -2,6 +2,12 @@ import { ProductCart } from './../../../entities/product-cart';
 import { MessengerService } from './../../../services/messenger.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/entities/product';
+import { CartService } from 'src/app/services/cart.service';
+
+interface product{
+
+}
+
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +16,7 @@ import { Product } from 'src/app/entities/product';
 })
 export class CartComponent implements OnInit {
 
-  cartItems = [
+  cartItems:any = [
 
     // { id: 1, productId : 1, productName : "Test 1", qty : 2, price : 100},
     // { id: 2, productId : 2, productName : "Test 2", qty : 4, price : 150},
@@ -22,14 +28,31 @@ export class CartComponent implements OnInit {
  
   cartTotal = 0;
 
-  constructor(private _msg: MessengerService) { }
+  constructor(private _msg: MessengerService, private cartService: CartService) { }
 
   ngOnInit() {
+
+    this.cartService.getProducts().subscribe(
+      data=>{
+        console.log(data);
+        this.filterItems(data);
+      }
+    )
+
     this._msg.getMsg().subscribe((cart : Product)=>{
       console.log(cart)
+      console.log("subscibe works")
      this.addProductToCart(cart);
   })
-}
+} 
+
+  filterItems(products){
+    for(let item of products){
+      this.addProductToCart(item);
+    }
+  }
+
+
 
   addProductToCart(cart: Product){
 

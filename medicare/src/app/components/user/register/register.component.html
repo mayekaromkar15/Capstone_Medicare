@@ -42,6 +42,7 @@
                         <input matInput placeholder="Enter Password here" type='password' name='password' [(ngModel)]='user.password' required>
                         <!-- <mat-hint>Enter Your UserName</mat-hint> -->
                     </mat-form-field>
+                    <p *ngIf="error" class="alert alert-danger text-center">{{error}}</p>
                     <button type='submit' id="registerbtn" class="register_button" mat-raised-button color="primary">REGISTER</button>
 
                 </form>

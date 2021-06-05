@@ -13,7 +13,7 @@ import Swal from 'sweetalert2'
 export class RegisterComponent implements OnInit {
 
   user : User = new User();
-
+  error =""
 
   constructor(private _registerService : RegisterService,
     private _router:Router, private _snack: MatSnackBar) { }
@@ -93,8 +93,16 @@ export class RegisterComponent implements OnInit {
         data =>
         {
           console.log(data);
-          Swal.fire('Succes','User is Successfully registered','success')
-          this.gotohomepage();
+          let responseData:any = data;
+          console.log(responseData.response);
+          if(responseData.error){
+            console.log("error ")
+            this.error = responseData.error.message;
+          } else {
+            this.error = "";
+            Swal.fire('Succes','User is Successfully registered','success')
+            this.gotohomepage();
+          }
         },
         error=>
         {
