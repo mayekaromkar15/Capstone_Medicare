@@ -3,6 +3,7 @@ import { Product } from '../../../../entities/product';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import Swal from 'sweetalert2';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-create-product',
@@ -14,8 +15,10 @@ export class CreateProductComponent implements OnInit {
   productCategory = "";
   product : Product = new Product();
   categoryList ;
+  selectedFile :File= null;
 
-  constructor(private _productService:ProductService, private snackBar : MatSnackBar) { }
+  constructor(private _productService:ProductService, private snackBar : MatSnackBar, 
+    private http: HttpClient) { }
 
   public listItems: Array<String> = [];
 
@@ -42,11 +45,28 @@ export class CreateProductComponent implements OnInit {
   
   }
 
-  onFileChanged(event){
-    console.log(event)
+  public onFileChanged(event) {
+    //Select File
+    this.selectedFile = <File>event.target.files[0];
+    console.log(event);
+    console.log("Inside event ")
   }
 
   onSubmit(){
+
+
+    const fd = new FormData();
+    fd.append('file', this.selectedFile, this.selectedFile.name);
+   this.product.productImagePath = this.selectedFile.name;
+
+   this.http.post("http://localhost:9090/upload-file", fd).subscribe(
+     data =>{
+       console.log("uploaded");
+     }, error =>{
+       console.log(error);
+     }
+   )
+
 
     if(this.product.productName.trim()=='' || this.product.productName == null)
     {

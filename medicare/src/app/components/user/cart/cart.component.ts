@@ -3,6 +3,7 @@ import { MessengerService } from './../../../services/messenger.service';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/entities/product';
 import { CartService } from 'src/app/services/cart.service';
+import Swal from 'sweetalert2';
 
 interface product{
 
@@ -45,6 +46,11 @@ export class CartComponent implements OnInit {
      this.addProductToCart(cart);
   })
 } 
+
+onSubmit(){
+  console.log("Order placed successfully")
+  Swal.fire("Your order is placed successfully","success","success")
+}
 
   filterItems(products){
     for(let item of products){

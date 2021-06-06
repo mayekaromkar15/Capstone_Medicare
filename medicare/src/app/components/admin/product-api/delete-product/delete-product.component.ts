@@ -22,10 +22,10 @@ export class DeleteProductComponent implements OnInit {
         console.log("Product deleted Successfully")
         Swal.fire("Success","Product Deleted","info")
         this._routing.navigate(["/admin-dashboard/product"])
-        // this._router.navigate(["/home"])
       },
       error => {
         console.log("Delete product component contains some errors"+error);
+        this._routing.navigate(["/admin-dashboard/product"])
       }
     )
   }

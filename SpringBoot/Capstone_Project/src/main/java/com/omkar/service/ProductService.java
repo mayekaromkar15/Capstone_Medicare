@@ -19,6 +19,10 @@ public class ProductService {
 	public List<Product> getAllProducts() {
 		return productRepo.findAll();
 	}
+	
+	public List<Product> getProductsByCategory(Long categoryId) {
+		return productRepo.getProductByCategory(categoryId);
+	}
 
 	public ResponseEntity<Product> getProduct(long productId) {
 		Product p = productRepo.findById(productId)
@@ -45,5 +49,9 @@ public class ProductService {
 
 	public void deleteProduct(long productId) {
 		productRepo.deleteById(productId);
+	}
+
+	public long getProductCount() {
+		return this.productRepo.getProductCount();
 	}
 }

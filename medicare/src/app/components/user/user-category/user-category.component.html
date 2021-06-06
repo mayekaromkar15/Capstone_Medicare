@@ -1,4 +1,4 @@
-<p>user-category works!</p>
+<h2 class="text-center">Categories</h2>
 
 
 <!-- <table class='table table-striped table-bordered table-hover'>
@@ -21,9 +21,9 @@
 <div class="container">
     <div class="row" style="margin-bottom: 20px;margin-top: 20px;">
 
-        <div class="col-md-3" *ngFor="let c of categories">
+        <div class="col-md-2" *ngFor="let c of categories">
             <div class="card shadow-sm">
-                <img class="bd-placeholder-img card-img-top" width="100%" [(src)]="c.categoryImagePath" />
+                <img class="bd-placeholder-img card-img-top" width="100" height="180" [(src)]="c.categoryImagePath" />
 
                 <div class="card-body">
                     <!-- <div class="card-text"><strong>{{250 | currency:'INR'}}</strong></div> -->

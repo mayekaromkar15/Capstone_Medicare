@@ -1,4 +1,4 @@
-<p>create-product works!</p>
+<!-- <p>create-product works!</p> -->
 
 <div class="bootstrap-wrapper">
     <div class="container">
@@ -12,7 +12,7 @@
 
                 <form (ngSubmit)="onSubmit()" #productForm="ngForm">
 
-                    {{ productForm.value | json }}
+                    <!-- {{ productForm.value | json }} -->
                     <mat-form-field appearance="outline" class="full-width">
                         <mat-label>Name</mat-label>
                         <input matInput placeholder="Enter Product Description here" required name='productName' [(ngModel)]='product.productName'>
@@ -41,7 +41,7 @@
 
                         </select>
                     </mat-form-field>
-
+                    <input type="file" name="file" placeholder="Attach Image here" [(ngModel)]='product.productImagePath' (change)="onFileChanged($event)" />
                     <div class="text-center">
                         <button type='submit' class="register_button" mat-raised-button color="primary">ADD PRODUCT</button>
                     </div>

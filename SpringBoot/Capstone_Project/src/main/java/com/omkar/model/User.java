@@ -2,6 +2,7 @@ package com.omkar.model;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -39,6 +40,15 @@ public class User implements UserDetails {
 	@JsonIgnore
 	private Set<UserRole> userRoles = new HashSet<>();
 
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+	@JsonIgnore
+	private Set<Cart> cartItems = new HashSet<>();
+	
+	
+//	@OneToMany(mappedBy ="user")
+//	private List<User> user;
+
+	
 	public Set<UserRole> getUserRoles() {
 		return userRoles;
 	}

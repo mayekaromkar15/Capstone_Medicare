@@ -53,6 +53,20 @@ public class UserServiceImpl implements UserService {
 		
 		return this.userRepository.findByUsername(userName);
 	}
+//
+//	@Override
+//	public long getUserCount() {
+////		User user = new User();
+////		long count = userRepository.count();
+//		return this.userRepository.getUserCount();
+//	}
+
+	@Override
+	public long getUserCount() {
+		return this.userRepository.getUserCount();
+	}
+	
+	
 	
 	
 

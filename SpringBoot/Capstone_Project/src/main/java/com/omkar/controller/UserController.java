@@ -1,7 +1,10 @@
 package com.omkar.controller;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +35,7 @@ public class UserController {
 	
 	
 	@PostMapping("/")
-	public User createUser(@RequestBody User user) throws Exception {
+	public Map<String, Object> createUser(@RequestBody User user) throws Exception {
 		
 		Role role1 = new Role();
 		role1.setRoleId(45L);
@@ -48,15 +51,29 @@ public class UserController {
 		userRole.setUser(user);
 		userRoleSet.add(userRole);
 		
-		User createUser = this.userService.createUser(user, userRoleSet);
-		System.out.println(createUser);
+		Map<String, Object> map= new HashMap<>();
 		
-		return createUser;
+		
+		try {
+			User createUser = this.userService.createUser(user, userRoleSet);
+			map.put("response", createUser);
+		} 
+		catch (Exception e) {
+			// TODO: handle exception
+			map.put("error", e);
+		}
+		
+		return map;
 	}
 	
 	@GetMapping("/")
 	public List<User> findAllUsers() throws Exception{
 		return this.userService.findAllUsers();
+	}
+	
+	@GetMapping("/userCount")
+	public long getUserCount() throws Exception{
+		return this.userService.getUserCount();
 	}
 	
 	@GetMapping("/{userName}")
